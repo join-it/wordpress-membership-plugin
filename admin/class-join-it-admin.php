@@ -101,12 +101,6 @@ class Join_It_Admin {
 	}
 
 	/**
-	*
-	* admin/class-wp-cbf-admin.php - Don't add this
-	*
-	**/
-
-	/**
 	 * Register the administration menu for this plugin into the WordPress Dashboard menu.
 	 *
 	 * @since    1.0.0
@@ -155,7 +149,7 @@ class Join_It_Admin {
 
 	/**
 	*
-	* admin/class-wp-cbf-admin.php
+	* admin/class-join-it-admin.php
 	*
 	**/
 	 public function options_update() {
@@ -164,7 +158,7 @@ class Join_It_Admin {
 
 	/**
 	*
-	* admin/class-wp-cbf-admin.php
+	* admin/class-join-it-admin.php
 	*
 	**/
 	public function validate($input) {
