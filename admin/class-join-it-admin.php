@@ -122,7 +122,7 @@ class Join_It_Admin {
 	     *        Administration Menus: http://codex.wordpress.org/Administration_Menus
 	     *
 	     */
-	    add_options_page( 'WP Cleanup and Base Options Functions Setup', 'WP Cleanup', 'manage_options', $this->plugin_name, array($this, 'display_plugin_setup_page')
+	    add_options_page( 'Settings for Join It Membership Management', 'Join It Settings', 'manage_options', $this->plugin_name, array($this, 'display_plugin_setup_page')
 	    );
 	}
 
@@ -152,5 +152,34 @@ class Join_It_Admin {
 	public function display_plugin_setup_page() {
 	    include_once( 'partials/join-it-admin-display.php' );
 	}
+
+	/**
+	*
+	* admin/class-wp-cbf-admin.php
+	*
+	**/
+	 public function options_update() {
+	    register_setting($this->plugin_name, $this->plugin_name, array($this, 'validate'));
+	 }
+
+	/**
+	*
+	* admin/class-wp-cbf-admin.php
+	*
+	**/
+	public function validate($input) {
+	    // All checkboxes inputs        
+	    $valid = array();
+
+	    //Cleanup
+	    $valid['cleanup'] = (isset($input['cleanup']) && !empty($input['cleanup'])) ? 1 : 0;
+	    $valid['comments_css_cleanup'] = (isset($input['comments_css_cleanup']) && !empty($input['comments_css_cleanup'])) ? 1: 0;
+	    $valid['gallery_css_cleanup'] = (isset($input['gallery_css_cleanup']) && !empty($input['gallery_css_cleanup'])) ? 1 : 0;
+	    $valid['body_class_slug'] = (isset($input['body_class_slug']) && !empty($input['body_class_slug'])) ? 1 : 0;
+	    $valid['jquery_cdn'] = (isset($input['jquery_cdn']) && !empty($input['jquery_cdn'])) ? 1 : 0;
+	    $valid['cdn_provider'] = esc_url($input['cdn_provider']);
+
+	    return $valid;
+	 }
 
 }
