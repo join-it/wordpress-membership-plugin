@@ -1,1 +1,14 @@
 theme: jekyll-theme-cayman
+gems:
+  - jekyll-seo-tag
+twitter:
+  username: joinit
+social:
+  name: Join It
+  links:
+    - https://twitter.com/joinit
+    - https://www.facebook.com/joinitco
+    - https://www.linkedin.com/company/join-it
+    - https://plus.google.com/+joinit-member-management
+    - https://github.com/join-it
+google_site_verification: google120b8c938e37192b.html
